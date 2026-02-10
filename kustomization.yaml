@@ -15,4 +15,4 @@ resources:
 images:
   - name: cr.hday/image
     newName: cr.hday.io/hday/milestone-timeline
-    newTag: "r21822317687"
+    newTag: "r21851704702"
