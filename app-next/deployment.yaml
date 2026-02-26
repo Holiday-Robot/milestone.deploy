@@ -46,6 +46,22 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /api/health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 10
       affinity:
         podAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -54,19 +70,3 @@ spec:
                   app.kubernetes.io/name: postgres
                   app.kubernetes.io/instance: prod
               topologyKey: "kubernetes.io/hostname"
-          readinessProbe:
-            httpGet:
-              path: /api/health
-              port: 3000
-              scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 10
-            failureThreshold: 3
-          livenessProbe:
-            httpGet:
-              path: /api/health
-              port: 3000
-              scheme: HTTP
-            initialDelaySeconds: 15
-            periodSeconds: 20
-            failureThreshold: 3
