@@ -61,9 +61,4 @@ spec:
             periodSeconds: 10
       affinity:
         podAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            - labelSelector:
-                matchLabels:
-                  app.kubernetes.io/name: postgres
-                  app.kubernetes.io/instance: prod
-              topologyKey: "kubernetes.io/hostname"
+          requiredDuringSchedulingIgnoredDuringExecution: []

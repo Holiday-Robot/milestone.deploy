@@ -9,3 +9,17 @@ images:
   - name: cr.hday/image
     newName: cr.hday.io/hday/milestone-timeline
     newTag: "r22148159298"
+
+patches:
+  - target:
+      kind: Deployment
+      name: milestone-timeline
+    patch: |
+      - op: add
+        path: /spec/template/spec/affinity/podAffinity/requiredDuringSchedulingIgnoredDuringExecution/-
+        value: 
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: postgres
+              app.kubernetes.io/instance: prod
+          topologyKey: kubernetes.io/hostname
