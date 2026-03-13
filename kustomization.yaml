@@ -8,7 +8,7 @@ resources:
 images:
   - name: cr.hday/image
     newName: cr.hday.io/hday/milestone-timeline
-    newTag: "r22888412792"
+    newTag: "r23035876196"
 
 patches:
   - target:
